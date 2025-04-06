@@ -22,6 +22,8 @@ public class SecurityConfig {
             .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
             .requestMatchers("/api/auth/**", "/api/usuarios/**").permitAll()
+            .requestMatchers("/api/auth/**", "/api/agendas/**").permitAll()
+            .requestMatchers("/api/auth/**", "/api/agendamentos/**").permitAll()
             .anyRequest().authenticated())
         .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS));
 
