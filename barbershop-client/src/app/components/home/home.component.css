@@ -6,7 +6,6 @@
   padding: 20px;
 }
 
-
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -38,7 +37,6 @@
   color: #008080;
   margin-bottom: 20px;
 }
-
 
 .btn-primary {
   margin-top: 20px;
@@ -77,9 +75,19 @@ p {
   color: #ccc;
 }
 
-.servicos {
+.servicos-contato-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   margin: 60px auto;
-  max-width: 800px;
+  max-width: 1200px;
+  align-items: start;
+}
+
+.servicos, .contato {
+  background-color: #111;
+  padding: 40px;
+  border-radius: 8px;
   text-align: center;
 }
 
@@ -95,7 +103,7 @@ p {
 .servicos-lista li {
   display: flex;
   align-items: center;
-  background-color: #111;
+  background-color: rgb(70, 70, 70);
   border-left: 5px solid #008080;
   padding: 15px 20px;
   border-radius: 6px;
@@ -109,22 +117,6 @@ p {
   height: 40px;
   object-fit: contain;
 }
-
-@media (max-width: 768px) {
-  .servicos-lista {
-    flex-direction: column;
-  }
-
-  .servicos-lista li {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .servico-icon {
-    margin-bottom: 10px;
-  }
-}
-
 
 .btn-whatsapp {
   display: inline-block;
@@ -158,9 +150,22 @@ p {
   text-align: center;
 }
 
+/* Responsivo */
 @media (max-width: 768px) {
   .hero-sobre-container {
     grid-template-columns: 1fr;
   }
-}
 
+  .servicos-contato-container {
+    grid-template-columns: 1fr;
+  }
+
+  .servicos-lista li {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .servico-icon {
+    margin-bottom: 10px;
+  }
+}
