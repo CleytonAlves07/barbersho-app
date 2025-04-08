@@ -150,7 +150,6 @@ p {
   text-align: center;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .hero-sobre-container {
     grid-template-columns: 1fr;
