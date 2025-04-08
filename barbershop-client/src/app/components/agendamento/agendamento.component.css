@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  background-color: #121212;
+  color: #fff;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: #ff9800;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #1e1e1e;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  border-left: 4px solid #009688;
+  border-radius: 4px;
+}
+
+strong {
+  color: #ff9800;
+}
