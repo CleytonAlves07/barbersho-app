@@ -1,0 +1,20 @@
+<h2>Nova Disponibilidade</h2>
+<form [formGroup]="agendaForm" (ngSubmit)="salvarDisponibilidade()">
+  <label for="inicio">Início:</label>
+  <input type="time" formControlName="horarioInicio" id="inicio" required />
+
+  <label for="fim">Fim:</label>
+  <input type="time" formControlName="horarioFim" id="fim" required />
+
+  <button type="submit">Salvar</button>
+</form>
+
+<hr />
+
+<h3>Horários Disponíveis</h3>
+<ul>
+  <li *ngFor="let agenda of agendas">
+    {{ agenda.horarioInicio }} - {{ agenda.horarioFim }}
+    <span *ngIf="agenda.barbeiro"> | Barbeiro: {{ agenda.barbeiro.nome }}</span>
+  </li>
+</ul>
