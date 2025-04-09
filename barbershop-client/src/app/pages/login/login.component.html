@@ -1,0 +1,21 @@
+<div class="login-page">
+  <div class="login-side-image">
+    <img src="assets/imgs/login-side.jpg" alt="Logo Invertida" />
+  </div>
+
+  <div class="login-form">
+    <div class="login-logo-top">
+      <img src="assets/imgs/logo-barber.png" alt="Logo Barber" />
+    </div>
+
+    <h2>Seja bem vindo!</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input formControlName="email" type="email" placeholder="Email" />
+      <input formControlName="password" type="password" placeholder="Senha" />
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p class="register-link">Não tem conta? <a routerLink="/register" routerLinkActive="active">Cadastre-se</a></p>
+  </div>
+</div>
