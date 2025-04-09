@@ -1,0 +1,22 @@
+<div class="register-page">
+  <div class="register-side-image">
+    <img src="assets/imgs/register-side2.jpg" alt="Imagem Cadastro" />
+  </div>
+
+  <div class="register-form">
+    <div class="login-logo-top">
+      <img src="assets/imgs/logo-barber.png" alt="Logo Barber" />
+    </div>
+
+    <h2>Faça seu cadastro</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input formControlName="nome" placeholder="Seu nome" />
+      <input formControlName="username" placeholder="Como quer ser chamado?" />
+      <input formControlName="email" placeholder="Email" />
+      <input formControlName="telefone" placeholder="Telefone" />
+      <input formControlName="password" type="password" placeholder="Senha" />
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>
