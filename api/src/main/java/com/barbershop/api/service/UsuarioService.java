@@ -1,8 +1,8 @@
 package com.barbershop.api.service;
 
 import com.barbershop.api.domain.UsuarioEntity;
-import com.barbershop.api.dto.UsuarioRequest;
-import com.barbershop.api.dto.UsuarioResponse;
+import com.barbershop.api.dto.request.UsuarioRequest;
+import com.barbershop.api.dto.response.UsuarioResponse;
 import com.barbershop.api.exception.UsuarioExistenteException;
 import com.barbershop.api.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;

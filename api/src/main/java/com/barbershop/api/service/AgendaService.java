@@ -2,9 +2,9 @@ package com.barbershop.api.service;
 
 import com.barbershop.api.domain.AgendaEntity;
 import com.barbershop.api.domain.UsuarioEntity;
-import com.barbershop.api.dto.AgendaRequest;
-import com.barbershop.api.dto.AgendaResponse;
-import com.barbershop.api.dto.UsuarioResponse;
+import com.barbershop.api.dto.request.AgendaRequest;
+import com.barbershop.api.dto.response.AgendaResponse;
+import com.barbershop.api.dto.response.UsuarioResponse;
 import com.barbershop.api.exception.BusinessException;
 import com.barbershop.api.repository.AgendaRepository;
 import com.barbershop.api.repository.AgendamentoRepository;
