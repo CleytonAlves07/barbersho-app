@@ -1,7 +1,7 @@
 package com.barbershop.api.controller;
 
-import com.barbershop.api.dto.UsuarioRequest;
-import com.barbershop.api.dto.UsuarioResponse;
+import com.barbershop.api.dto.request.UsuarioRequest;
+import com.barbershop.api.dto.response.UsuarioResponse;
 import com.barbershop.api.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

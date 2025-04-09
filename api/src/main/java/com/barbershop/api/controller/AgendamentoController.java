@@ -1,7 +1,7 @@
 package com.barbershop.api.controller;
 
-import com.barbershop.api.dto.AgendamentoRequest;
-import com.barbershop.api.dto.AgendamentoResponse;
+import com.barbershop.api.dto.request.AgendamentoRequest;
+import com.barbershop.api.dto.response.AgendamentoResponse;
 import com.barbershop.api.service.AgendamentoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
