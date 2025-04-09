@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-agendamento',
   templateUrl: './agendamento.component.html',
+  standalone: true,
   imports: [CommonModule],
   styleUrls: ['./agendamento.component.css']
 })
