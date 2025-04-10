@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-export interface Barbeiro {
+export interface Usuario {
   id: string;
   nome: string;
   username: string;
@@ -11,8 +12,14 @@ export interface Barbeiro {
   role: string;
 }
 
+export interface Barbeiro {
+  id: string;
+  nome: string;
+}
+
 export interface Agenda {
   id?: string;
+  data: string;
   horarioInicio: string;
   horarioFim: string;
   barbeiro?: Barbeiro;
@@ -23,6 +30,7 @@ export interface Agenda {
 export class AgendaService {
   
   private apiUrl = 'http://localhost:8080/api/agendas';
+  private apiUrlBarbeiro = 'http://localhost:8080/api/usuarios';
 
   constructor(private http: HttpClient) { }
 
@@ -35,6 +43,7 @@ export class AgendaService {
   }
 
   create(agenda: Agenda): Observable<Agenda> {
+    console.log(agenda);
     return this.http.post<Agenda>(this.apiUrl, agenda);
   }
 
@@ -45,4 +54,22 @@ export class AgendaService {
   delete(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  getBarbeiros(): Observable<Barbeiro[]> {
+
+    let barbeiros = this.http.get<Usuario[]>(this.apiUrlBarbeiro)
+      .pipe(
+        map((usuarios: Usuario[]) =>
+          usuarios
+            .filter((usuario) => usuario.role === 'BARBEIRO')
+            .map((barbeiro) => ({
+              id: barbeiro.id,
+              nome: barbeiro.nome,
+            }))
+        )
+    );
+    console.log(barbeiros);
+    return barbeiros;
+  }
+
 }

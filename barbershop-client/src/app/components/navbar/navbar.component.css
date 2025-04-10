@@ -3,6 +3,7 @@ nav {
   padding: 20px;
   width: 100%;
   display: flex;
+  font-family: 'Cormorant Garamond', serif;
   justify-content: space-between;
   align-items: center;
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 interface LoginResponse {
   token: string;
@@ -28,6 +29,21 @@ export class AuthService {
       ...data,
       role: 'CLIENTE'
     });
+  }
+
+  getUserIdFromToken(): string | null {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    try {
+      const decoded: any = jwtDecode(token);
+      console.log("🚀 ~ AuthService ~ getUserIdFromToken ~ decoded:", decoded)
+      
+      return decoded.id || null;
+    } catch (error) {
+      console.error('Erro ao decodificar o token:', error);
+      return null;
+    }
   }
 
   logout() {

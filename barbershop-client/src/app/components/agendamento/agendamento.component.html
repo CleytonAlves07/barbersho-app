@@ -1,11 +1,33 @@
 <div class="agendamento-container">
   <h2>Agendamentos</h2>
-  <ul>
-    <li *ngFor="let agendamento of agendamentos">
-      Cliente: <strong>{{ agendamento.cliente?.nome }}</strong><br>
-      Data/Hora: {{ agendamento.dataHora }}<br>
-      Status: {{ agendamento.status }}<br>
-      Barbeiro: {{ agendamento.agenda?.barbeiro?.nome || '---' }}
-    </li>
-  </ul>
+
+  <table class="tabela-agendamentos" *ngIf="agendamentos.length > 0">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Cliente</th>
+        <th>Telefone</th>
+        <th>Horário</th>
+        <th>Status</th>
+        <th>Barbeiro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agendamento of agendamentos">
+        <td>{{ formatarData(agendamento.agenda?.data || '---') }}</td>
+        <td>{{ agendamento.cliente?.nome || '---' }}</td>
+        <td>{{ agendamento.cliente?.telefone || '---' }}</td>
+        <td>
+          {{ formatarDataHora(agendamento.agenda?.horarioInicio) }} -
+          {{ formatarDataHora(agendamento.agenda?.horarioFim) }}
+        </td>
+        <td>{{ agendamento.status }}</td>
+        <td>{{ agendamento.agenda?.barbeiro?.nome || '---' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="agendamentos.length === 0" class="sem-agendamentos">
+    Nenhum agendamento encontrado.
+  </div>
 </div>

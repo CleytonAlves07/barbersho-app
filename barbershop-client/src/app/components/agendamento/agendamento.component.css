@@ -8,21 +8,39 @@
 
 h2 {
   color: #ff9800;
+  text-align: center;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.agendamento-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-li {
-  background: #1e1e1e;
-  margin-bottom: 0.5rem;
+.tabela-agendamentos {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 1rem auto;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.tabela-agendamentos th,
+.tabela-agendamentos td {
   padding: 0.75rem;
-  border-left: 4px solid #009688;
-  border-radius: 4px;
+  text-align: left;
+  border-bottom: 1px solid #333;
 }
 
-strong {
+.tabela-agendamentos th {
+  background-color: #2c2c2c;
   color: #ff9800;
+}
+
+.sem-agendamentos {
+  margin-top: 2rem;
+  color: #ccc;
+  text-align: center;
 }
