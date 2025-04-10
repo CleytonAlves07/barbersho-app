@@ -1,20 +1,48 @@
-<h2>Nova Disponibilidade</h2>
-<form [formGroup]="agendaForm" (ngSubmit)="salvarDisponibilidade()">
-  <label for="inicio">Início:</label>
-  <input type="time" formControlName="horarioInicio" id="inicio" required />
+<h2>Marque um horário conosco!</h2>
 
-  <label for="fim">Fim:</label>
-  <input type="time" formControlName="horarioFim" id="fim" required />
+<form [formGroup]="agendaForm" (ngSubmit)="salvarAgenda()">
+  <mat-form-field appearance="fill">
+    <mat-label>Data</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="data"
+      required
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 
-  <button type="submit">Salvar</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Horário de Início</mat-label>
+    <mat-select formControlName="horarioInicio" required>
+      <mat-option *ngFor="let horario of horariosInicio" [value]="horario">
+        {{ horario }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Horário de Fim</mat-label>
+    <input
+      matInput
+      type="time"
+      formControlName="horarioFim"
+      required
+      [disabled]="true"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Barbeiro</mat-label>
+    <mat-select formControlName="barbeiroId" required>
+      <mat-option *ngFor="let barbeiro of barbeiros" [value]="barbeiro.id">
+        {{ barbeiro.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    Salvar
+  </button>
 </form>
-
-<hr />
-
-<h3>Horários Disponíveis</h3>
-<ul>
-  <li *ngFor="let agenda of agendas">
-    {{ agenda.horarioInicio }} - {{ agenda.horarioFim }}
-    <span *ngIf="agenda.barbeiro"> | Barbeiro: {{ agenda.barbeiro.nome }}</span>
-  </li>
-</ul>
