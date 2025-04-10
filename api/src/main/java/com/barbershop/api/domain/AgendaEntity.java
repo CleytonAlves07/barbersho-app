@@ -3,6 +3,7 @@ package com.barbershop.api.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -17,6 +18,9 @@ public class AgendaEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
+
+  @Column(nullable = false)
+  private LocalDate data;
 
   @Column(nullable = false)
   private LocalDateTime horarioInicio;

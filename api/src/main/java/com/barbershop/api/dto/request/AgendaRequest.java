@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -12,6 +13,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AgendaRequest {
+
+  @Schema(example = "2025-04-05")
+  @NotNull(message = "Data é obrigatória")
+  private LocalDate data;
 
   @Schema(example = "2025-04-05T09:00:00")
   @NotNull(message = "Horário de início é obrigatório")

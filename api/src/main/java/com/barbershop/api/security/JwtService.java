@@ -19,6 +19,7 @@ public class JwtService {
 
   public String generateToken(UsuarioEntity usuario) {
     return Jwts.builder()
+        .claim("id", usuario.getId())
         .setSubject(usuario.getUsername())
         .claim("role", usuario.getRole().name())
         .claim("email", usuario.getEmail())
@@ -47,4 +48,12 @@ public class JwtService {
       return false;
     }
   }
+//  public Long getUserIdFromToken(String token) {
+//    return Long.valueOf(Jwts.parserBuilder()
+//        .setSigningKey(key)
+//        .build()
+//        .parseClaimsJws(token)
+//        .getBody()
+//        .get("id").toString());
+//  }
 }

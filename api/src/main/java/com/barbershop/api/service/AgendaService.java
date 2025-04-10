@@ -29,6 +29,7 @@ public class AgendaService {
         .orElseThrow(() -> new RuntimeException("Barbeiro não encontrado"));
 
     AgendaEntity agenda = AgendaEntity.builder()
+        .data(request.getData())
         .horarioInicio(request.getHorarioInicio())
         .horarioFim(request.getHorarioFim())
         .barbeiro(barbeiro)
@@ -57,6 +58,7 @@ public class AgendaService {
     UsuarioEntity barbeiro = usuarioRepository.findById(request.getBarbeiroId())
         .orElseThrow(() -> new RuntimeException("Barbeiro não encontrado"));
 
+    agenda.setData(request.getData());
     agenda.setHorarioInicio(request.getHorarioInicio());
     agenda.setHorarioFim(request.getHorarioFim());
     agenda.setBarbeiro(barbeiro);
@@ -89,6 +91,7 @@ public class AgendaService {
 
     return AgendaResponse.builder()
         .id(agenda.getId())
+        .data(agenda.getData())
         .horarioInicio(agenda.getHorarioInicio())
         .horarioFim(agenda.getHorarioFim())
         .barbeiro(barbeiroResponse)

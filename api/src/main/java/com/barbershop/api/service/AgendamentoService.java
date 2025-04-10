@@ -85,6 +85,7 @@ public class AgendamentoService {
             .build())
         .agenda(AgendaResponse.builder()
             .id(agendamento.getAgenda().getId())
+            .data(agendamento.getAgenda().getData())
             .horarioInicio(agendamento.getAgenda().getHorarioInicio())
             .horarioFim(agendamento.getAgenda().getHorarioFim())
             .barbeiro(UsuarioResponse.builder()

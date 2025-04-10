@@ -29,7 +29,7 @@ public class AuthService {
           .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
       String token = jwtService.generateToken(user);
-      return new AuthResponse(token);
+      return new AuthResponse(token, user.getId());
     } catch (AuthenticationException e) {
       throw new RuntimeException("Email ou senha inválidos");
     }
